@@ -18,7 +18,7 @@ comments: false
     <img
       src="/MyBlogs/images/profile.jpg"
       alt="Pranav Rajalakshmi Vasudevan"
-      style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"
+      style="width:100%; height:100%; object-fit:cover; object-position:center 30%; display:block;"
     />
   </div>
 </div>
