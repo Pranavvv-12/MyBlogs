@@ -5,7 +5,7 @@
 
 baseURL       = "https://pranavvv-12.github.io/MyBlogs/"
 locale        = "en-US"
-title         = "My Blog & Journal"
+title         = "Filter Coffee to Cappuccino"
 theme         = "PaperMod"
 paginate      = 10
 enableRobotsTXT = true
