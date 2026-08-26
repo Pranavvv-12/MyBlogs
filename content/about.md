@@ -9,16 +9,16 @@ showtoc: false
 comments: false
 ---
 
-<div style="display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:2rem;">
-  <div style="flex:1; min-width:0;">
+<div style="display:flex; gap:2rem; align-items:flex-start; margin-bottom:2rem; flex-wrap:wrap;">
+  <div style="flex:1; min-width:220px;">
     <h2 style="margin-top:0;">Hi, I'm Pranav Rajalakshmi Vasudevan</h2>
     <p>A deeply homebound soul who somehow packed his entire life into two oversized suitcases and moved halfway across the world to Delft.</p>
   </div>
-  <div style="flex-shrink:0;">
+  <div style="flex-shrink:0; width:200px; height:250px; overflow:hidden; border-radius:10px; border:2px solid #6366f1; box-shadow:0 6px 24px rgba(99,102,241,0.18);">
     <img
       src="/MyBlogs/images/profile.jpg"
       alt="Pranav Rajalakshmi Vasudevan"
-      class="profile-photo"
+      style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"
     />
   </div>
 </div>
