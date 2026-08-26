@@ -3,7 +3,7 @@ title: "My First Journal Entry"
 date: 2026-08-26T11:00:00+02:00
 draft: false
 description: "The beginning of something new — a space to think, reflect, and write freely."
-tags: ["journal", "personal", "beginnings"]
+tags: ["MastersAbroad", "TUDelft", "DataScience", "FitnessAndCode"]
 categories: ["Journal"]
 author: "Pranav Rajalakshmi Vasudevan"
 showToc: true
