@@ -7,6 +7,11 @@ summary: "About Pranav Rajalakshmi Vasudevan"
 hidemeta: true
 showtoc: false
 comments: false
+ShowShareButtons: false
+ShowPostNavLinks: false
+ShowReadingTime: false
+ShowWordCount: false
+ShowBreadCrumbs: false
 ---
 
 <div style="display:flex; gap:2rem; align-items:flex-start; margin-bottom:2rem; flex-wrap:wrap;">
