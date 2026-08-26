@@ -9,15 +9,12 @@ showtoc: false
 comments: false
 ---
 
-<div class="about-intro">
-  <div class="about-intro-text">
-
-## Hi, I'm Pranav Rajalakshmi Vasudevan
-
-A deeply homebound soul who somehow packed his entire life into two oversized suitcases and moved halfway across the world to Delft.
-
+<div style="display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:2rem;">
+  <div style="flex:1; min-width:0;">
+    <h2 style="margin-top:0;">Hi, I'm Pranav Rajalakshmi Vasudevan</h2>
+    <p>A deeply homebound soul who somehow packed his entire life into two oversized suitcases and moved halfway across the world to Delft.</p>
   </div>
-  <div class="about-intro-image">
+  <div style="flex-shrink:0;">
     <img
       src="/MyBlogs/images/profile.jpg"
       alt="Pranav Rajalakshmi Vasudevan"
