@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   Custom CSS — layered on top of PaperMod defaults
-   Edit freely to personalise fonts, colours, spacing, etc.
+   Custom CSS — Filter Coffee to Cappuccino
+   Dutch minimalism meets Indian warmth. No colours, no icons — just
+   typography, geometry, and movement.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── Google Fonts ─────────────────────────────────────────────────────────── */
@@ -11,87 +12,257 @@
   --font-body:   'Inter', system-ui, sans-serif;
   --font-prose:  'Lora', Georgia, serif;
   --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
-
-  /* Accent colour — change to suit your taste */
-  --accent:       #6366f1;   /* indigo-500 */
-  --accent-light: #a5b4fc;   /* indigo-300 */
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --accent:      #6366f1;
+  --accent-light:#a5b4fc;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
 }
 
-/* ── Base typography ──────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════════════ */
 body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Make post body text use the serif prose font */
 .post-content {
   font-family: var(--font-prose);
   font-size: 1.075rem;
   line-height: 1.8;
 }
 
-/* Monospace */
 code, pre, kbd, samp {
   font-family: var(--font-mono);
 }
 
-/* ── Accent colour overrides ──────────────────────────────────────────────── */
-a:hover,
-.post-title a:hover {
-  color: var(--accent);
-}
-
-.paginav a:hover,
-.breadcrumbs a:hover {
-  color: var(--accent);
-}
-
-/* ── Header / Nav ─────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   NAVIGATION — Clean header with subtle bottom border
+   ═══════════════════════════════════════════════════════════════════════════ */
 .nav {
   border-bottom: 1px solid var(--border);
 }
 
 .logo a {
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  font-size: 1.15rem;
 }
 
-/* ── Post cards (list view) ───────────────────────────────────────────────── */
+/* Typing cursor blink on logo */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  font-weight: 300;
+  opacity: 0.5;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HOME PAGE — Hero entrance with staggered reveal
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Decorative kolam-inspired dot pattern above hero title */
+.home-info::before {
+  content: '· · · ✦ · · ·';
+  display: block;
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-size: 0.75rem;
+  opacity: 0.3;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.home-info-title {
+  font-family: var(--font-prose);
+  font-weight: 600;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.home-info-content {
+  font-family: var(--font-prose);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 600px;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Geometric De Stijl–style line below hero */
+.home-info::after {
+  content: '';
+  display: block;
+  margin: 2rem auto 0;
+  width: 80px;
+  height: 2px;
+  background: var(--primary);
+  opacity: 0.15;
+  animation: expandLine 1s ease 0.8s forwards;
+  transform-origin: center;
+  transform: scaleX(0);
+}
+
+@keyframes expandLine {
+  to { transform: scaleX(1); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL REVEAL SYSTEM — Elements appear as you scroll down
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 0.3; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   POST CARDS — Elevated hover with subtle motion
+   ═══════════════════════════════════════════════════════════════════════════ */
 .post-entry {
   border-radius: var(--radius-md);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .post-entry:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* ── Reading progress feel — smooth scroll ────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
+/* Subtle left border accent on hover — De Stijl nod */
+.post-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* ── Blockquotes ──────────────────────────────────────────────────────────── */
+.post-entry:hover::before {
+  opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DECORATIVE SECTION DIVIDERS — Kolam meets De Stijl
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* The <hr> separators get a kolam-dot pattern */
+.post-content hr {
+  border: none;
+  text-align: center;
+  overflow: visible;
+  height: 1px;
+  background: none;
+  margin: 2.5rem 0;
+}
+
+.post-content hr::before {
+  content: '·  ·  ·  ✦  ·  ·  ·';
+  display: inline-block;
+  position: relative;
+  top: -0.6em;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  opacity: 0.25;
+  background: var(--theme);
+  padding: 0 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADINGS — Structured, confident, with geometric accents
+   ═══════════════════════════════════════════════════════════════════════════ */
+.post-content h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+/* De Stijl underline for h2 */
+.post-content h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  opacity: 0.2;
+  margin-top: 0.5rem;
+  transition: width 0.3s ease;
+}
+
+.post-content h2:hover::after {
+  width: 80px;
+  opacity: 0.4;
+}
+
+.post-content h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BLOCKQUOTES — Elegant pull-quotes
+   ═══════════════════════════════════════════════════════════════════════════ */
 blockquote {
-  border-left: 3px solid var(--accent);
-  padding-left: 1.25rem;
+  border-left: 3px solid var(--primary);
+  border-left-opacity: 0.3;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
   font-style: italic;
+  font-family: var(--font-prose);
   color: var(--secondary);
+  position: relative;
 }
 
-/* ── Code blocks ──────────────────────────────────────────────────────────── */
+blockquote::before {
+  content: '"';
+  font-family: var(--font-prose);
+  font-size: 3rem;
+  position: absolute;
+  top: -0.2rem;
+  left: 0.5rem;
+  opacity: 0.08;
+  line-height: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CODE BLOCKS
+   ═══════════════════════════════════════════════════════════════════════════ */
 .highlight {
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
 
-/* ── Tags ─────────────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAGS — Minimal pill shape
+   ═══════════════════════════════════════════════════════════════════════════ */
 .post-tags a {
   border-radius: 999px;
   padding: 2px 10px;
@@ -100,7 +271,9 @@ blockquote {
   transition: background 0.15s, color 0.15s;
 }
 
-/* ── Table of Contents ────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE OF CONTENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
 #TableOfContents {
   font-size: 0.875rem;
 }
@@ -114,7 +287,22 @@ blockquote {
   color: var(--accent);
 }
 
-/* ── About page — 2-column intro layout ──────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCENT LINK HOVERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+a:hover,
+.post-title a:hover {
+  color: var(--accent);
+}
+
+.paginav a:hover,
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ABOUT PAGE — 2-column intro layout
+   ═══════════════════════════════════════════════════════════════════════════ */
 .about-intro {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -137,24 +325,22 @@ blockquote {
   border-radius: 12px;
   object-fit: cover;
   object-position: top;
-  border: 3px solid var(--accent);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: block;
 }
 
 .profile-photo:hover {
   transform: scale(1.03);
-  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.28);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Stack to single column on mobile */
 @media (max-width: 640px) {
   .about-intro {
     grid-template-columns: 1fr;
   }
   .about-intro-image {
-    order: -1;       /* image above text on small screens */
+    order: -1;
     display: flex;
     justify-content: center;
   }
@@ -164,7 +350,33 @@ blockquote {
   }
 }
 
-/* ── Responsive tweaks ────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOOTER — Subtle kolam dot pattern above footer
+   ═══════════════════════════════════════════════════════════════════════════ */
+.footer {
+  position: relative;
+}
+
+.footer::before {
+  content: '· · ✦ · ·';
+  display: block;
+  text-align: center;
+  letter-spacing: 0.5em;
+  font-size: 0.6rem;
+  opacity: 0.15;
+  margin-bottom: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SMOOTH SCROLL
+   ═══════════════════════════════════════════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .post-content {
     font-size: 1rem;
@@ -173,5 +385,9 @@ blockquote {
 
   .main {
     padding: 0 1rem;
+  }
+
+  .home-info-title {
+    font-size: 1.6rem;
   }
 }

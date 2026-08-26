@@ -1,0 +1,60 @@
+<!-- Scroll-reveal animation observer + staggered entrance animations -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ── Staggered hero entrance animation ──────────────────────────────
+  const homeInfo = document.querySelector('.home-info');
+  if (homeInfo) {
+    const title = homeInfo.querySelector('.home-info-title');
+    const content = homeInfo.querySelector('.home-info-content');
+    const socialIcons = document.querySelector('.social-icons');
+
+    if (title) {
+      title.style.opacity = '0';
+      title.style.transform = 'translateY(24px)';
+      title.style.transition = 'opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      setTimeout(() => { title.style.opacity = '1'; title.style.transform = 'translateY(0)'; }, 200);
+    }
+    if (content) {
+      content.style.opacity = '0';
+      content.style.transform = 'translateY(24px)';
+      content.style.transition = 'opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      setTimeout(() => { content.style.opacity = '1'; content.style.transform = 'translateY(0)'; }, 500);
+    }
+    if (socialIcons) {
+      socialIcons.style.opacity = '0';
+      socialIcons.style.transform = 'translateY(16px)';
+      socialIcons.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      setTimeout(() => { socialIcons.style.opacity = '1'; socialIcons.style.transform = 'translateY(0)'; }, 900);
+    }
+  }
+
+  // ── Scroll-reveal observer ─────────────────────────────────────────
+  const revealElements = document.querySelectorAll(
+    '.post-entry, .post-content h2, .post-content h3, .post-content blockquote, .post-content ul, .post-content ol, .post-content p, .about-intro, .about-section'
+  );
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  revealElements.forEach((el, i) => {
+    el.classList.add('reveal-on-scroll');
+    el.style.transitionDelay = `${Math.min(i * 0.06, 0.3)}s`;
+    revealObserver.observe(el);
+  });
+
+  // ── Typing cursor effect on blog title ─────────────────────────────
+  const logo = document.querySelector('.logo a, .header .logo');
+  if (logo && !document.querySelector('.cursor-blink')) {
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor-blink';
+    cursor.textContent = '|';
+    logo.appendChild(cursor);
+  }
+});
+</script>
