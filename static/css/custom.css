@@ -114,6 +114,56 @@ blockquote {
   color: var(--accent);
 }
 
+/* ── About page — profile photo ───────────────────────────────────────────── */
+.about-profile {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 2.5rem;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.28);
+}
+
+/* Shown only when photo is missing */
+.profile-placeholder {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px dashed var(--accent);
+  color: var(--secondary);
+  font-size: 0.8rem;
+  text-align: center;
+  gap: 0.4rem;
+  padding: 1rem;
+}
+
+.profile-placeholder span {
+  font-size: 2.5rem;
+}
+
+.profile-placeholder code {
+  font-size: 0.72rem;
+  background: var(--code-bg);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
 /* ── Responsive tweaks ────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .post-content {
