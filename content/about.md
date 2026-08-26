@@ -12,8 +12,7 @@ comments: false
 <div style="display:flex; gap:2rem; align-items:flex-start; margin-bottom:2rem; flex-wrap:wrap;">
   <div style="flex:1; min-width:220px;">
     <h2 style="margin-top:0;">Hi, I'm Pranav Rajalakshmi Vasudevan</h2>
-    <p>A deeply homebound soul who somehow packed his entire life into two oversized suitcases and moved halfway across the world to Delft.</p>
-    <p style="font-style:italic; opacity:0.6; margin-top:-0.5rem; font-size:0.95rem;">From Chennai to Delft.</p>
+    <p>A deeply homebound soul who somehow packed his entire life into two oversized suitcases and moved halfway across the world from Chennai to Delft.</p>
   </div>
   <div style="flex-shrink:0; width:200px; height:250px; overflow:hidden; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.35);">
     <img
