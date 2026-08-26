@@ -5,7 +5,7 @@ draft: false
 description: "The beginning of something new — a space to think, reflect, and write freely."
 tags: ["journal", "personal", "beginnings"]
 categories: ["Journal"]
-author: "Pranav"
+author: "Pranav Rajalakshmi Vasudevan"
 showToc: true
 TocOpen: false
 hidemeta: false

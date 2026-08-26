@@ -24,9 +24,9 @@ buildExpired  = false
 
 # ── Site Parameters ───────────────────────────────────────────────────────────
 [params]
-  author         = "Pranav"
-  description    = "A personal blog and journal — thoughts, ideas, and everyday moments."
-  keywords       = ["blog", "journal", "personal", "writing"]
+  author         = "Pranav Rajalakshmi Vasudevan"
+  description    = "Trading silver dabarahs for canal-side ceramic mugs. A personal chronicle of moving halfway across the world, navigating grad school at TU Delft, decoding Dutch weather, and figuring out who you become when you leave home behind."
+  keywords       = ["blog", "journal", "personal", "TU Delft", "Netherlands", "expat", "grad school"]
   defaultTheme   = "auto"   # auto | light | dark
   disableThemeToggle = false
   ShowReadingTime    = true
@@ -48,7 +48,7 @@ buildExpired  = false
   # ── Home page info ────────────────────────────────────────────────────────
   [params.homeInfoParams]
     Title  = "Hey there 👋"
-    Content = "Welcome to my corner of the internet — a place for journal entries, essays, and reflections."
+    Content = "Trading silver dabarahs for canal-side ceramic mugs. A personal chronicle of moving halfway across the world, navigating grad school at TU Delft, decoding Dutch weather, and figuring out who you become when you leave home behind."
 
   # ── Social icons ──────────────────────────────────────────────────────────
   [[params.socialIcons]]
