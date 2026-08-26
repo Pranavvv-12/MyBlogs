@@ -1,0 +1,13 @@
+# Hugo generated output — never commit
+public/
+resources/_gen/
+
+# Hugo lock file
+.hugo_build.lock
+
+# macOS junk
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

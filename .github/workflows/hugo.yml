@@ -1,0 +1,81 @@
+---
+# ─────────────────────────────────────────────────────────────────────────────
+#  Hugo GitHub Actions Workflow
+#  Builds and deploys the site to GitHub Pages on every push to `main`.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Deploy Hugo Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+
+# Grant GITHUB_TOKEN the permissions needed to deploy to Pages
+permissions:
+  contents: read
+  pages:    write
+  id-token: write
+
+# Prevent concurrent deployments
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# ── Default shell ─────────────────────────────────────────────────────────────
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # ── Job 1: Build ────────────────────────────────────────────────────────────
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      HUGO_VERSION: "0.165.0"   # pin to same version as local install
+      HUGO_ENVIRONMENT: production
+
+    steps:
+      - name: Checkout repository (including submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive   # ← critical: pulls in PaperMod theme
+          fetch-depth: 0          # full history for .GitInfo & .Lastmod
+
+      - name: Set up Hugo ${{ env.HUGO_VERSION }}
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true          # extended version supports SCSS
+
+      - name: Set up GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build site
+        run: |
+          hugo \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  # ── Job 2: Deploy ───────────────────────────────────────────────────────────
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url:  ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

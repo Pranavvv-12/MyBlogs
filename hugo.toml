@@ -1,0 +1,134 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Site Configuration — Hugo + PaperMod
+#  Update baseURL with your actual GitHub username before deploying.
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseURL       = "https://yourusername.github.io/MyBlogs/"
+locale        = "en-US"
+title         = "My Blog & Journal"
+theme         = "PaperMod"
+paginate      = 10
+enableRobotsTXT = true
+buildDrafts   = false
+buildFuture   = false
+buildExpired  = false
+
+# ── Minification ──────────────────────────────────────────────────────────────
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+# ── Outputs (needed for search) ───────────────────────────────────────────────
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# ── Site Parameters ───────────────────────────────────────────────────────────
+[params]
+  author         = "Pranav"
+  description    = "A personal blog and journal — thoughts, ideas, and everyday moments."
+  keywords       = ["blog", "journal", "personal", "writing"]
+  defaultTheme   = "auto"   # auto | light | dark
+  disableThemeToggle = false
+  ShowReadingTime    = true
+  ShowShareButtons   = true
+  ShowPostNavLinks   = true
+  ShowBreadCrumbs    = true
+  ShowCodeCopyButtons = true
+  ShowWordCount      = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc         = true
+  disableScrollToTop = false
+  comments           = false
+  hidemeta           = false
+  hideSummary        = false
+  showtoc            = true
+  tocopen            = false
+  customCSS          = ["/css/custom.css"]
+
+  # ── Home page info ────────────────────────────────────────────────────────
+  [params.homeInfoParams]
+    Title  = "Hey there 👋"
+    Content = "Welcome to my corner of the internet — a place for journal entries, essays, and reflections."
+
+  # ── Social icons ──────────────────────────────────────────────────────────
+  [[params.socialIcons]]
+    name = "github"
+    url  = "https://github.com/yourusername"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url  = "/index.xml"
+
+  # ── Cover image defaults ──────────────────────────────────────────────────
+  [params.cover]
+    hidden     = true
+    hiddenInList = true
+    hiddenInSingle = true
+
+  # ── Edit post link ─────────────────────────────────────────────────────────
+  [params.editPost]
+    URL           = "https://github.com/yourusername/MyBlogs/edit/main/content"
+    Text          = "Suggest Changes"
+    appendFilePath = true
+
+  # ── Search (Fuse.js) ──────────────────────────────────────────────────────
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort      = true
+    location        = 0
+    distance        = 1000
+    threshold       = 0.4
+    minMatchCharLength = 0
+    limit           = 10
+    keys            = ["title", "permalink", "summary", "content"]
+
+# ── Taxonomies ────────────────────────────────────────────────────────────────
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+  series   = "series"
+
+# ── Navigation Menus ──────────────────────────────────────────────────────────
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name       = "Home"
+    url        = "/"
+    weight     = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "/posts/"
+    weight     = 2
+
+  [[menu.main]]
+    identifier = "archives"
+    name       = "Archives"
+    url        = "/archives/"
+    weight     = 3
+
+  [[menu.main]]
+    identifier = "tags"
+    name       = "Tags"
+    url        = "/tags/"
+    weight     = 4
+
+  [[menu.main]]
+    identifier = "search"
+    name       = "Search"
+    url        = "/search/"
+    weight     = 5
+
+# ── Markup / Syntax Highlighting ──────────────────────────────────────────────
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true   # allow raw HTML in Markdown
+  [markup.highlight]
+    noClasses         = false
+    anchorLineNos     = true
+    codeFences        = true
+    guessSyntax       = true
+    lineNos           = true
+    style             = "monokai"

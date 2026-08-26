@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Custom CSS — layered on top of PaperMod defaults
+   Edit freely to personalise fonts, colours, spacing, etc.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── CSS Custom Properties ────────────────────────────────────────────────── */
+:root {
+  --font-body:   'Inter', system-ui, sans-serif;
+  --font-prose:  'Lora', Georgia, serif;
+  --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Accent colour — change to suit your taste */
+  --accent:       #6366f1;   /* indigo-500 */
+  --accent-light: #a5b4fc;   /* indigo-300 */
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+/* ── Base typography ──────────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make post body text use the serif prose font */
+.post-content {
+  font-family: var(--font-prose);
+  font-size: 1.075rem;
+  line-height: 1.8;
+}
+
+/* Monospace */
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+}
+
+/* ── Accent colour overrides ──────────────────────────────────────────────── */
+a:hover,
+.post-title a:hover {
+  color: var(--accent);
+}
+
+.paginav a:hover,
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+/* ── Header / Nav ─────────────────────────────────────────────────────────── */
+.nav {
+  border-bottom: 1px solid var(--border);
+}
+
+.logo a {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ── Post cards (list view) ───────────────────────────────────────────────── */
+.post-entry {
+  border-radius: var(--radius-md);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.post-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Reading progress feel — smooth scroll ────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Blockquotes ──────────────────────────────────────────────────────────── */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--secondary);
+}
+
+/* ── Code blocks ──────────────────────────────────────────────────────────── */
+.highlight {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* ── Tags ─────────────────────────────────────────────────────────────────── */
+.post-tags a {
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+
+/* ── Table of Contents ────────────────────────────────────────────────────── */
+#TableOfContents {
+  font-size: 0.875rem;
+}
+
+#TableOfContents a {
+  color: var(--secondary);
+  transition: color 0.15s;
+}
+
+#TableOfContents a:hover {
+  color: var(--accent);
+}
+
+/* ── Responsive tweaks ────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .post-content {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .main {
+    padding: 0 1rem;
+  }
+}
