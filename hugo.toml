@@ -48,7 +48,7 @@ buildExpired  = false
   # ── Home page info ────────────────────────────────────────────────────────
   [params.homeInfoParams]
     Title  = "Hey there 👋"
-    Content = "Trading silver dabarahs for canal-side ceramic mugs. A personal chronicle of moving halfway across the world, navigating grad school at TU Delft, decoding Dutch weather, and figuring out who you become when you leave home behind."
+    Content = "Trading silver dabarahs for canal-side ceramic mugs. A personal chronicle of moving halfway across the world, navigating grad school at TU Delft, decoding Dutch weather, and figuring out who you become when you leave home behind.\n\n→ *Curious who's writing this?* **[That's me.](/MyBlogs/about/)**"
 
   # ── Social icons ──────────────────────────────────────────────────────────
   [[params.socialIcons]]
