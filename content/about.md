@@ -9,35 +9,22 @@ showtoc: false
 comments: false
 ---
 
-<!--
-  ┌─────────────────────────────────────────────────────────────────────┐
-  │  PROFILE IMAGE INSTRUCTIONS                                         │
-  │                                                                     │
-  │  1. Save your photo as:  static/images/profile.jpg                 │
-  │     (JPG, PNG or WEBP — square crop recommended, min 400×400 px)   │
-  │                                                                     │
-  │  2. Push the file to GitHub and the image will appear here.        │
-  │                                                                     │
-  │  That's it. No code changes needed.                                 │
-  └─────────────────────────────────────────────────────────────────────┘
--->
-
-<div class="about-profile">
-  <img
-    src="/MyBlogs/images/profile.jpg"
-    alt="Pranav Rajalakshmi Vasudevan"
-    class="profile-photo"
-    onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='flex';"
-  />
-  <div id="profile-placeholder" class="profile-placeholder">
-    <span>📷</span>
-    <p>Add your photo to<br><code>static/images/profile.jpg</code></p>
-  </div>
-</div>
+<div class="about-intro">
+  <div class="about-intro-text">
 
 ## Hi, I'm Pranav Rajalakshmi Vasudevan
 
 A deeply homebound soul who somehow packed his entire life into two oversized suitcases and moved halfway across the world to Delft.
+
+  </div>
+  <div class="about-intro-image">
+    <img
+      src="/MyBlogs/images/profile.jpg"
+      alt="Pranav Rajalakshmi Vasudevan"
+      class="profile-photo"
+    />
+  </div>
+</div>
 
 ---
 
