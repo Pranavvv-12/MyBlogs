@@ -56,8 +56,12 @@ buildExpired  = false
     url  = "https://github.com/Pranavvv-12"
 
   [[params.socialIcons]]
-    name = "rss"
-    url  = "/index.xml"
+    name = "linkedin"
+    url  = "https://www.linkedin.com/in/pranav-vasudevan-994233248/"
+
+  [[params.socialIcons]]
+    name = "instagram"
+    url  = "https://www.instagram.com/pranavvv_12"
 
   # ── Cover image defaults ──────────────────────────────────────────────────
   [params.cover]

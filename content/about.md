@@ -52,4 +52,4 @@ Leaving behind the warmth, familiar chaos, and Sunday comforts of home wasn't ea
 
 ---
 
-*You can find me on [GitHub](https://github.com/Pranavvv-12) or just say hello through the posts.*
+*Find me here — [GitHub](https://github.com/Pranavvv-12) · [LinkedIn](https://www.linkedin.com/in/pranav-vasudevan-994233248/) · [Instagram](https://www.instagram.com/pranavvv_12)*
